@@ -1,0 +1,28 @@
+{
+  "name": "transmask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts":
+   { 
+  "sass": "sass styles/sass/styles.sass:public/css/styles.css",   
+  "sass-watch": "sass --watch styles/sass/styles.sass:public/css/styles.css",   
+  "start": "npm run sass && nodemon server.js"
+ },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diego1216/transmask.git"
+  },
+  "author": "Diego uwu yo merengues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diego1216/transmask/issues"
+  },
+  "homepage": "https://github.com/diego1216/transmask#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0",
+    "pug": "^3.0.2",
+    "sass": "^1.75.0"
+  }
+}
