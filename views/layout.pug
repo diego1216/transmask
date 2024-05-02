@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    title #{title}
+    meta(charset="UTF-8")
+    link(rel='stylesheet', href='/css/styles.css')
+  body
+    nav
+      ul
+        li
+          a(href='/') Inicio
+        if user != ''
+          li
+            a(href='/logout')
+              i(class='material-symbols-rounded') logout
+    .container
+      block content

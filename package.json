@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts":
-   { 
-  "sass": "sass styles/sass/styles.sass:public/css/styles.css",   
-  "sass-watch": "sass --watch styles/sass/styles.sass:public/css/styles.css",   
-  "start": "npm run sass && nodemon server.js"
- },
+  "scripts": {
+    "sass": "sass styles/sass/styles.sass:public/css/styles.css",
+    "sass-watch": "sass --watch styles/sass/styles.sass:public/css/styles.css",
+    "start": "npm run sass && nodemon server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/diego1216/transmask.git"
@@ -20,7 +19,11 @@
   },
   "homepage": "https://github.com/diego1216/transmask#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.9.7",
     "nodemon": "^3.1.0",
     "pug": "^3.0.2",
     "sass": "^1.75.0"
