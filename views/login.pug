@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Login
+    link(rel="stylesheet", href="assets/css/estilos.css")
+  body
+    main
+      .contenedor__todo
+        .caja__trasera
+          .caja__trasera-login
+            h3 ¿Ya tienes una cuenta?
+            p Inicia sesión para entrar en la página
+            button#btn__iniciar-sesion Iniciar Sesión
+          .caja__trasera-register
+            h3 ¿Aún no tienes una cuenta?
+            p Regístrate para que puedas iniciar sesión
+            button#btn__registrarse Regístrarse
+        .contenedor__login-register
+          form.formulario__login(action="", method="POST")
+            h2 Iniciar Sesión
+            input(type="text", placeholder="Correo Electronico")
+            input(type="password", placeholder="Contraseña")
+            button(type="submit") Entrar
+          form.formulario__register(action="", method="POST")
+            h2 Regístrarse
+            input(type="text", placeholder="Nombre completo")
+            input(type="text", placeholder="Correo Electronico")
+            input(type="text", placeholder="Usuario")
+            input(type="password", placeholder="Contraseña")
+            button(type="submit") Regístrarse

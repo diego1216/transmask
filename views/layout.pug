@@ -1,17 +1,28 @@
+
 doctype html
 html(lang="en")
   head
-    title #{title}
-    meta(charset="UTF-8")
-    link(rel='stylesheet', href='/css/styles.css')
+    meta(charset="UTF-8") 
+    link(rel="stylesheet", href="/css/styles.css") 
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Transmask
+    
   body
-    nav
-      ul
-        li
-          a(href='/') Inicio
-        if user != ''
+    header(class="header")
+      .logo 
+        a(href="/", class="prueba")
+          img(src="https://cdn-icons-png.flaticon.com/512/6877/6877672.png")
+      nav
+        ul.nav-links
+        
           li
-            a(href='/logout')
-              i(class='material-symbols-rounded') logout
-    .container
-      block content
+           
+      a.btn(href="/login") Login
+      a.menu(href="#", onclick="closeNav()")
+        button login
+      .overlay#mobile-menu
+        a.close(href="", onclick="closeNav()") &times;
+        .overlay-content
+          a(href="#") login
+    block content
