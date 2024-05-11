@@ -1,169 +1,326 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap')
 
-*
-  box-sizing: border-box
-  margin: 0
-  padding: 0
-  font-family: 'Nunito', sans-serif
+* 
+  box-sizing: border-box 
+  margin: 0 
+  padding: 0 
+  font-family: 'Nunito', sans-serif 
   font-size: 20px
 
-body
-  background-color: #fdf7bd
+body 
+  background-color: #fdf7bd 
   min-width: 400px
 
-.header
-  background-color: #338aaf
-  display: flex
-  justify-content: flex-end
-  align-items: center
-  height: 85px
+.header 
+  background-color: #338aaf 
+  display: flex 
+  justify-content: flex-end 
+  align-items: center 
+  height: 85px 
   padding: 5px 10%
 
-  .logo
-    cursor: pointer
+  .logo 
+    cursor: pointer 
     margin-right: auto
 
-    img
-      height: 80px
-      width: auto
+    img 
+      height: 80px 
+      width: auto 
       transition: all 0.3s
 
-      &:hover
+      &:hover 
         transform: scale(1.2)
 
-  .nav-links
+  .nav-links 
     list-style: none
 
-    li
-      display: inline-block
+    li 
+      display: inline-block 
       padding: 0 20px
 
-      &:hover,
-      .overlay a:hover
+      &:hover, 
+      .overlay a:hover 
         transform: scale(1.1)
 
-      a
+      a 
         font-size: 700
-        color: #eceff1
 
-        &:hover
+        &:hover 
           color: #0ec7ff
 
-  .btn button,
-  .menu button
-    margin-left: 20px
-    font-weight: 700
-    color: #1b3039
-    padding: 9px 25px
-    background: #eceff1
-    border: none
-    border-radius: 50px
-    cursor: pointer
+  .btn
+    font-weight: 700 
+    color: #1b3039 
+    padding: 9px 25px 
+    background: #eceff1 
+    border: none 
+    border-radius: 50px 
+    cursor: pointer 
     transition: all 0.3s ease 0s
+    margin-right: 20px
 
-    &:hover
-      background-color: #e2f1f8
-      color: #ffbc0e
+
+    &:hover 
+      background-color: #e2f1f8 
+      color: #0ec7ff
       transform: scale(1.1)
 
-  .menu
-    display: none
+  .login-btn
+    @extend .btn 
+    margin-left: 20px 
 
-  @media screen and (max-width: 800px)
-    .nav-links,
-    .btn
+  @media screen and (max-width: 100px) 
+    .nav-links 
       display: none
-    .menu
-      display: inherit
+    .header .login-btn
+      display: inline-block
+      margin-left: 20px
+  
+a 
+  text-decoration: none
 
-  a
-    text-decoration: none
+.overlay 
+  height: 100% 
+  width: 0 
+  position: fixed 
+  z-index: 1 
+  left: 0 
+  top: 0 
+  background-color: rgba(33, 49, 63, 0.95) 
+  overflow: hidden 
+  transition: all 0.3s ease 0s
 
-  .overlay
-    height: 100%
-    width: 0
-    position: fixed
-    z-index: 1
-    left: 0
-    top: 0
-    background-color: rgba(33, 49, 63, 0.95)
-    overflow: hidden
-    transition: all 0.3s ease 0s
+  .overlay-content 
+    display: flex 
+    height: 100% 
+    flex-direction: column 
+    align-items: center 
+    justify-content: center
 
-    .overlay-content
-      display: flex
-      height: 100%
-      flex-direction: column
-      align-items: center
-      justify-content: center
+    a 
+      padding: 15px 
+      font-size: 36px 
+      display: block 
+      transition: all 0.3s ease 0s 
+      font-weight: 700 
+      color: #eceff1
 
-      a
-        padding: 15px
-        font-size: 36px
-        display: block
-        transition: all 0.3s ease 0s
-        font-weight: 700
-        color: #eceff1
+      &:hover, 
+      &:focus 
+        color: #ffbc0e
 
-        &:hover,
-        &:focus
-          color: #ffbc0e
+    .close 
+      position: absolute 
+      top: 20px 
+      right: 45px 
+      font-size: 65px
 
-      .close
-        position: absolute
-        top: 20px
-        right: 45px
-        font-size: 65px
+      @media screen and (max-height: 450px) 
+        font-size: 40px 
+        top: 15px 
+        right: 35px
 
-        @media screen and (max-height: 450px)
-          font-size: 40px
-          top: 15px
-          right: 35px
-
-
-h1
-  margin-left: auto
-  margin-right: auto
-  font-size: 80px
+h1 
+  margin-left: auto 
+  margin-right: auto 
+  font-size: 80px 
   text-align: center
 
-p.parrafo
-  margin-left: auto
-  margin-right: auto
-  font-size: 28px
+p.parrafo 
+  margin-left: auto 
+  margin-right: auto 
+  font-size: 28px 
   text-align: center
 
-@media screen and (max-width: 1200px)
-  h1
+@media screen and (max-width: 1200px) 
+  h1 
     font-size: 60px
 
-  p.parrafo
+  p.parrafo 
     font-size: 26px
 
-@media screen and (max-width: 800px)
-  h1
+@media screen and (max-width: 800px) 
+  h1 
     font-size: 40px
 
-  p.parrafo
+  p.parrafo 
     font-size: 20px
 
-@media screen and (max-width: 576px)
-  h1
+@media screen and (max-width: 576px) 
+  h1 
     font-size: 38px
 
-  p.parrafo
+  p.parrafo 
     font-size: 18px
 
-@media screen and (max-width: 768px)
-  h1
+@media screen and (max-width: 768px) 
+  h1 
     font-size: 36px
 
-  p.parrafo
+  p.parrafo 
     font-size: 16px
 
-@media screen and (max-width: 992px)
-  h1
+@media screen and (max-width: 992px) 
+  h1 
     font-size: 34px
 
-  p.parrafo
+  p.parrafo 
     font-size: 14px
+
+ 
+body
+ 
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  background-attachment: fixed
+
+main
+  width: 100%
+  padding: 20px
+  margin: auto
+  margin-top: 100px
+
+.contenedor__todo
+  width: 100%
+  max-width: 800px
+  margin: auto
+  position: relative
+
+.caja
+  width: 100%
+  padding: 70px 20px
+  display: flex
+  justify-content: center
+  -webkit-backdrop-filter: blur(10px)
+  backdrop-filter: blur(10px)
+  background-color: #fdf7bd 
+  
+
+.caja div
+  margin-top: 200px
+  margin-left: 400px
+  color: white
+  transition: all 500ms
+
+.caja div p,
+.caja button
+  margin-top: 0px
+  color: #000
+.caja div h3
+  font-weight: 400
+  font-size: 26px
+  color: #000
+.caja div p
+  font-size: 16px
+  font-weight: 300
+  color: #000
+
+a#btn__registrarse
+  padding: 10px 40px
+  border: 2px solid #ce24b1 
+  font-size: 14px
+  background: #ce24b1 
+  font-weight: 600
+  cursor: pointer
+  color: #272323
+  outline: none
+  transition: all 300ms
+  display: inline-block
+   margin-top: 0px
+
+a#btn__registrarse:hover
+  background: #1d1c1c
+  color: #ce24b1 
+  border: 2px solid #1d1c1c
+
+
+.contenedor__login-register
+  display: flex
+  align-items: center
+  width: 100%
+  max-width: 380px
+  position: relative
+  top: -185px
+  left: 10px
+  transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275)
+
+.contenedor__login-register form
+  width: 100%
+  padding: 80px 20px
+  background: white
+  position: absolute
+  border-radius: 20px
+
+.contenedor__login-register form h2
+  font-size: 30px
+  text-align: center
+  margin-bottom: 20px
+  color:#ce24b1 
+
+.contenedor__login-register form input
+  width: 100%
+  margin-top: 20px
+  padding: 10px
+  border: none
+  background: #f0e8e8
+  font-size: 16px
+  outline: none
+
+.contenedor__login-register form button
+  padding: 10px 40px
+  margin-top: 40px
+  border: none
+  font-size: 14px
+  background: #ce24b1 
+  font-weight: 600
+  cursor: pointer
+  color: white
+  outline: none
+
+.formulario__login
+  opacity: 1
+  display: block
+
+.formulario__register
+  display: none
+
+@media screen and (max-width: 850px)
+  main
+    margin-top: 50px
+
+  .caja
+    max-width: 350px
+    height: 300px
+    flex-direction: column
+    margin: auto
+
+  .caja div
+    margin: 0px
+    position: absolute
+
+  .contenedor__login-register
+    top: -10px
+    left: -5px
+    margin: auto
+
+  .contenedor__login-register form
+    position: relative
+
+
+.btn2
+  font-weight: 700 
+  color: #1b3039 
+  padding: 9px 25px 
+  background: #eceff1 
+  border: none 
+  border-radius: 50px 
+  cursor: pointer 
+  transition: all 0.3s ease 0s
+  margin-right: 0 
+  margin-bottom: 10px
+
+  &:hover 
+    background-color: #e2f1f8 
+    color: #0edbff 
+    transform: scale(1.1)
