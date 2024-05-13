@@ -25,7 +25,7 @@ async function obtenerPorusuario(usuario) {
 }
 
 
-// lo mismo pero con su ID
+// lo mismo que el anterior  pero con su ID
 async function obtenerPorId(id) {
     const conexion = await obtenerConexion();
     try {

@@ -1,6 +1,6 @@
 const { obtenerConexion } = require('../conexion');
 
-// Función para insertar un nuevo usuario en la base de datos MySQL
+
 async function registrar(nombre, email, password) {
     const conexion = await obtenerConexion();
     try {
@@ -10,11 +10,11 @@ async function registrar(nombre, email, password) {
         console.error('Error al insertar usuario:', error);
         throw error;
     } finally {
-        conexion.release(); // Liberar la conexión al finalizar
+        
     }
 }
 
-// Función para obtener un usuario por su nombre de usuario
+
 async function obtenerPorNombre(nombre) {
     const conexion = await obtenerConexion();
     try {
@@ -24,11 +24,11 @@ async function obtenerPorNombre(nombre) {
         console.error('Error al obtener usuario por nombre:', error);
         throw error;
     } finally {
-        conexion.release(); // Liberar la conexión al finalizar
+        
     }
 }
 
-// Función para obtener un usuario por su ID
+
 async function obtenerPorId(id) {
     const conexion = await obtenerConexion();
     try {
@@ -38,7 +38,7 @@ async function obtenerPorId(id) {
         console.error('Error al obtener usuario por ID:', error);
         throw error;
     } finally {
-        conexion.release(); // Liberar la conexión al finalizar
+       
     }
 }
 

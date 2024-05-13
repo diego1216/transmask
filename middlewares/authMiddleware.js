@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const fs = require('fs');
 
-//Configura DotEnv
+
 dotenv.config();
 
 async function authenticate(req, res, next) {
