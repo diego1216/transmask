@@ -275,8 +275,14 @@ a#btn__registrarse:hover
   background: #ce24b1 
   font-weight: 600
   cursor: pointer
-  color: white
+  color: #1d1c1c
   outline: none
+  border-radius: 50px
+
+  &:hover
+   background: #1d1c1c
+   color: #ce24b1 
+   border: 2px solid #1d1c1c
 
 .formulario__login
   opacity: 1
@@ -371,21 +377,23 @@ main
 
 a#btn__registrarse
   padding: 10px 40px
-  border: 2px solid #ce24b1 
+  border: 2px solid #ce24b1
   font-size: 14px
-  background: #ce24b1 
+  background: #ce24b1
   font-weight: 600
   cursor: pointer
   color: #272323
   outline: none
   transition: all 300ms
   display: inline-block
-   margin-top: 0px
+  margin-top: 0px
+  border-radius: 50px
+  text-decoration: none
 
-a#btn__registrarse:hover
-  background: #1d1c1c
-  color: #ce24b1 
-  border: 2px solid #1d1c1c
+  &:hover
+    background: #1d1c1c
+    color: #ce24b1
+    border: 2px solid #1d1c1c
 
 
 .contenedor__login-register

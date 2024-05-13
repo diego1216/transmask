@@ -1,7 +1,8 @@
 const { obtenerConexion } = require('../conexion');
 
 
-async function registrar(nombre, email, password) {
+async function registrar(nombre, email, password) 
+{
     const conexion = await obtenerConexion();
     try {
         await conexion.query('INSERT INTO usuarios (nombre, email, password_hash) VALUES (?, ?, ?)', [nombre, email, password]);
@@ -9,12 +10,8 @@ async function registrar(nombre, email, password) {
     } catch (error) {
         console.error('Error al insertar usuario:', error);
         throw error;
-    } finally {
-        
-    }
+    } 
 }
-
-
 async function obtenerPorNombre(nombre) {
     const conexion = await obtenerConexion();
     try {
@@ -23,9 +20,7 @@ async function obtenerPorNombre(nombre) {
     } catch (error) {
         console.error('Error al obtener usuario por nombre:', error);
         throw error;
-    } finally {
-        
-    }
+    } 
 }
 
 
@@ -37,9 +32,7 @@ async function obtenerPorId(id) {
     } catch (error) {
         console.error('Error al obtener usuario por ID:', error);
         throw error;
-    } finally {
-       
-    }
+    } 
 }
 
 module.exports = {

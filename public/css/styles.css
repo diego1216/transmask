@@ -299,8 +299,14 @@ a#btn__registrarse:hover {
   background: #ce24b1;
   font-weight: 600;
   cursor: pointer;
-  color: white;
+  color: #1d1c1c;
   outline: none;
+  border-radius: 50px;
+}
+.contenedor__login-register form button:hover {
+  background: #1d1c1c;
+  color: #ce24b1;
+  border: 2px solid #1d1c1c;
 }
 
 .formulario__login {
@@ -413,9 +419,10 @@ a#btn__registrarse {
   outline: none;
   transition: all 300ms;
   display: inline-block;
-  display-margin-top: 0px;
+  margin-top: 0px;
+  border-radius: 50px;
+  text-decoration: none;
 }
-
 a#btn__registrarse:hover {
   background: #1d1c1c;
   color: #ce24b1;

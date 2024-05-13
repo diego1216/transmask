@@ -18,6 +18,7 @@ async function authenticate(req, res, next) {
 
     try {
         // Verifica el token usando la clave secreta
+       
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
 
         // Almacena el ID del usuario en la solicitud para su posterior uso
@@ -34,6 +35,7 @@ async function authenticate(req, res, next) {
 
 // Función para generar un token JWT
 function generateToken(userId) {
+    console.log(userId);
     // Crea un token con el ID de usuario y una clave secreta
     return jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
 }

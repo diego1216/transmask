@@ -7,11 +7,13 @@ async function registrarUsuario(req, res) {
   console.log(nombre, usuario, correo, contraseña, confirmcontraseña);
 
   // Verificar si la contraseña y su confirmación coinciden
-  if (contraseña !== confirmcontraseña) {
-      return res.status(400).send('Las contraseñas no coinciden');
-  }
+   try {
+       if (contraseña !== confirmcontraseña) 
+       {
+         return res.status(400).send('Las contraseñas no coinciden');
+       }
 
-  try {
+ 
       // Verificar si el usuario ya está registrado
       const usuarioExistente = await usuarioModel.obtenerPorusuario(usuario);
       if (usuarioExistente) {
