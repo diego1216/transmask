@@ -1,41 +1,72 @@
-const bcrypt = require('bcrypt');
-const connection = require('../basededatos/conexion');
 
-const saltRounds = 10;
+const usuarioModel = require('../modelos/usuariosmodel');
+const authMiddleWare = require('../middlewares/authMiddleware');
 
-const userController = {
-  register: async (req, res) => {
-    const { username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
+async function registrarUsuario(req, res) {
+  const { nombre, usuario, correo, contraseña, confirmcontraseña } = req.body;
+  console.log(nombre, usuario, correo, contraseña, confirmcontraseña);
 
-    try {
-      // Aquí puedes usar la conexión a la base de datos para guardar el usuario
-      // Ejemplo: await connection.query('INSERT INTO users (username, password) VALUES (?, ?)', [username, hashedPassword]);
-      res.send('Usuario registrado correctamente');
-    } catch (error) {
-      console.error('Error al registrar usuario:', error);
-      res.status(500).send('Error al registrar usuario');
-    }
-  },
-
-  login: async (req, res) => {
-    const { username, password } = req.body;
-
-    try {
-      // Aquí puedes usar la conexión a la base de datos para verificar las credenciales del usuario
-      // Ejemplo: const [rows] = await connection.query('SELECT * FROM users WHERE username = ?', [username]);
-      // Luego, comparar la contraseña hash con bcrypt.compare()
-      res.send('Inicio de sesión exitoso');
-    } catch (error) {
-      console.error('Error al iniciar sesión:', error);
-      res.status(500).send('Error al iniciar sesión');
-    }
-  },
-
-  logout: (req, res) => {
-    req.session.destroy();
-    res.send('Sesión cerrada ');
+  // Verificar si la contraseña y su confirmación coinciden
+  if (contraseña !== confirmcontraseña) {
+      return res.status(400).send('Las contraseñas no coinciden');
   }
-};
 
-module.exports = userController;
+  try {
+      // Verificar si el usuario ya está registrado
+      const usuarioExistente = await usuarioModel.obtenerPorusuario(usuario);
+      if (usuarioExistente) {
+          return res.status(400).send('El usuario ya está registrado');
+      }
+
+      // Hash de la contraseña
+      const hashedPassword = await authMiddleWare.getHash(contraseña);
+
+      // Registrar el usuario en la base de datos
+      await usuarioModel.registrar(nombre, usuario, correo, hashedPassword);
+      console.log(hashedPassword)
+
+      // Usuario insertado correctamente
+      res.redirect('/login');
+  } catch (error) {
+      console.error(error.message);
+      console.log("error en el registro");
+      console.log(nombre, usuario, correo, contraseña, confirmcontraseña);
+      res.status(500).send('Error interno del servidor');
+  }
+}
+
+async function obtenerUsuarioPorusuario(req, res) {
+  try {
+      const { usuario } = req.params;
+      const usuarioEncontrado = await usuarioModel.obtenerPorusuario(usuario);
+      if (usuarioEncontrado) {
+          res.json(usuarioEncontrado);
+      } else {
+          res.status(404).send('Usuario no encontrado');
+      }
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Error al obtener usuario por nombre');
+  }
+}
+
+async function obtenerUsuarioPorId(req, res) {
+    try {
+        const { id } = req.params;
+        const usuario = await usuarioModel.obtenerPorId(id);
+        if (usuario) {
+            res.json(usuario);
+        } else {
+            res.status(404).send('Usuario no encontrado');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener usuario por ID');
+    }
+}
+
+module.exports = {
+    registrarUsuario,
+    obtenerUsuarioPorusuario,
+    obtenerUsuarioPorId,
+};

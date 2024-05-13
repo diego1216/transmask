@@ -1,7 +1,11 @@
 extends layout
 
 block content
-    h1(classs="empresa")  TRANSMASK 
-    p(class="parrafo") Ponte la máscara que quieras #{title}
-    textarea(placeholder="prueba")
-    button(type="submit", class="boton") prueba 
+    h1.empresa TRANSMASK 
+    p.parrafo Ponte la máscara que quieras #{title}
+
+    .container
+        textarea#textInput(placeholder="Enter text here...")
+        button(onclick="convertToBinary()") Convert
+        textarea#binaryOutput(placeholder="traducción..." readonly)
+    script(src="../basededatos/tablas/traductor.js")
