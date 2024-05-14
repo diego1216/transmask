@@ -71,7 +71,6 @@ async function guardarTextoCifrado(usuarioId, textoOriginal, textoCifrado, callb
     // Elimina el espacio adicional al final y devuelve la cadena binaria cifrada
     return binario.trim();
 }
-
   async function obtenerMetodosCifrado() {
     const conexion = await obtenerConexion();
     try {

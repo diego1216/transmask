@@ -1,13 +1,13 @@
 extends layout
 
 block content
-    h1.empresa TRANSMASK 
-    p.parrafo  #{title}
+  h1.empresa TRANSMASK 
+  p.parrafo #{title}
 
-    .container
-        form(action="/cifrado", method='post') 
-            select.signika-negative-font(name='tipoCifrado')
-                each metodo in metodosCifrado
-                    option(value=metodo.id)= metodo.nombre 
-            textarea(name='textoOriginal' id="textoOriginal" placeholder="Enter text here...")
-            button(type="submit" class="boton") Convert
+  .container
+    form(action="/cifrado", method='post') 
+      select.signika-negative-font(name='tipoCifrado')
+        each metodo in metodosCifrado
+          option(value=metodo.id)= metodo.nombre 
+      textarea(name='textoOriginal' id="textoOriginal" placeholder="Enter text here...")
+      button(type="submit" class="boton") Convert

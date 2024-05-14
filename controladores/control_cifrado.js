@@ -35,6 +35,18 @@ async function cifrarTexto(req, res) {
             res.status(500).send('Error interno del servidor');
             return;
         }
+        let conversionesRealizadas = req.session.conversionesRealizadas || 0;
+
+        if (!req.isAuthenticated()) {
+            // Si el usuario no está autenticado, verificar el límite de conversiones
+            if (conversionesRealizadas < 3) {
+              conversionesRealizadas++;
+              req.session.conversionesRealizadas = conversionesRealizadas;
+            } else {
+              // Si el usuario ha realizado tres conversiones y no está autenticado, redirigir al usuario al inicio de sesión
+              return res.redirect("/login");
+            }
+          }
 
         // Guardar el texto cifrado en la base de datos solo si el usuario está autenticado
         if (usuarioId) {
