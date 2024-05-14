@@ -1,0 +1,9 @@
+extends layout 
+
+block content
+  .traduccion
+    if textoCifrado
+     .texto-cifrado
+      p.cifrado-text El texto cifrado es:
+      
+      p #{textoCifrado}

@@ -14,9 +14,13 @@ html(lang="en")
           img(src="https://cdn-icons-png.flaticon.com/512/6877/6877672.png", alt="Logo")
       nav
         ul.nav-links
-          li 
-            a.btn(href="/register") registrar
-            a.btn(href="/login") Login
-           
-       
+          if user
+            li
+              a.btn(href="/logout") Logout
+          else
+            li
+              a.btn(href="/register") Registrar
+            li
+              a.btn(href="/login") Login
+    
     block content
